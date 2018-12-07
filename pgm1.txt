@@ -1,0 +1,64 @@
+
+PROGRAM_1
+
+import csv
+hypo=['%','%','%','%','%','%']
+with open('/home/weblab-sys-24/Documents/sev.csv')as csv_file:
+    readcsv=csv.reader(csv_file)
+    print(readcsv)
+    data=[]
+    print("\n the given training examples are")
+    for row in readcsv:
+        print(row)
+        if row [len(row)-1].upper()=="YES":
+            data.append(row)
+print("positive examples are")
+for x in data:
+    print(x)
+TotalExamples=len(data)
+i=0
+j=0
+k=0
+print("\n steps of FIND.S algorithm",hypo)
+list=[]
+p=0
+d=len(data[p])-1
+for j in range(d):
+    list.append(data[i][j])
+hypo=list
+for i in range(TotalExamples):
+    for k in range(d):
+        if hypo[k]!=data[i][k]:
+            hypo[k]='?'
+            k=k+1
+        else:
+            hypo[k]
+    print(hypo)
+i=i+1
+print("\n FIND.S algorithm output")
+list=[]
+for i in range(d):
+    list.append(hypo[i])
+print(list)
+
+OUTPUT:
+
+<_csv.reader object at 0xb48f91ec>
+
+ the given training examples are
+['sky', 'airtemp', 'humidity', 'wind', 'water', 'forecast', 'enjoy sport']
+['sunny', 'warm', 'normal', 'strong', 'warm', 'same', 'yes']
+['sunny', 'warm', 'high', 'strong', 'warm', 'same', 'yes']
+['rainy', 'cold', 'normal', 'strong', 'warm', 'change', 'no']
+['sunny', 'warm', 'high', 'strong', 'cool', 'same', 'yes']
+positive examples are
+['sunny', 'warm', 'normal', 'strong', 'warm', 'same', 'yes']
+['sunny', 'warm', 'high', 'strong', 'warm', 'same', 'yes']
+['sunny', 'warm', 'high', 'strong', 'cool', 'same', 'yes']
+('\n steps of FIND.S algorithm', ['%', '%', '%', '%', '%', '%'])
+['sunny', 'warm', 'normal', 'strong', 'warm', 'same']
+['sunny', 'warm', '?', 'strong', 'warm', 'same']
+['sunny', 'warm', '?', 'strong', '?', 'same']
+
+ FIND.S algorithm output
+['sunny', 'warm', '?', 'strong', '?', 'same']
